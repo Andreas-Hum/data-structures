@@ -1,0 +1,27 @@
+{
+  "name": "data-structures",
+  "version": "0.0.1",
+  "description": "A typescript based package with many different data structures implientet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andreas-Hum/data-structures.git"
+  },
+  "keywords": [
+    "data-structure",
+    "datastructure"
+  ],
+  "author": "Andreas Hummelmose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andreas-Hum/data-structures/issues"
+  },
+  "homepage": "https://github.com/Andreas-Hum/data-structures#readme",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
