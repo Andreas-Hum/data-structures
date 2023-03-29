@@ -1,7 +1,7 @@
 
 
 /**
- * Represents a node in a doubly linked list.
+ * Represents a node in a single linked list.
  * @template T - The type of data stored in the node.
  */
 export default class Node<T> {
@@ -17,11 +17,6 @@ export default class Node<T> {
      */
     private _next: Node<T> | null;
 
-    /**
-     * The previous node in the linked list.
-     * @private
-     */
-    private _prev: Node<T> | null;
 
     /**
      * Creates a new node with the specified data.
@@ -30,10 +25,9 @@ export default class Node<T> {
     constructor(data: T) {
         this._value = data;
         this._next = null;
-        this._prev = null;
     }
 
-    // Getters
+    // GETTERS
 
     /**
      * Returns the data stored in the node.
@@ -51,15 +45,8 @@ export default class Node<T> {
         return this._next;
     }
 
-    /**
-     * Returns the previous node in the linked list.
-     * @returns The previous node in the linked list, or null if there is no previous node.
-     */
-    public getPrev(): Node<T> | null {
-        return this._prev;
-    }
 
-    // Setters
+    // SETTERS
 
     /**
      * Sets the data stored in the node.
@@ -77,11 +64,4 @@ export default class Node<T> {
         this._next = nextNode;
     }
 
-    /**
-     * Sets the previous node in the linked list.
-     * @param prevNode - The previous node in the linked list.
-     */
-    public setPrev(prevNode: Node<T>): void {
-        this._prev = prevNode;
-    }
 }
