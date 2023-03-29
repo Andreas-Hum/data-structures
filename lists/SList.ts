@@ -126,13 +126,3 @@ export default class SinglyLinkedList<T> {
 }
 
 
-const testings = new Node<number>(0)
-const test = new SinglyLinkedList<number>(4, 5, 6)
-test.push(1, 2, 3)
-test.unshift(11,9,13)
-
-// console.log(test.length)
-// console.log(test.unshift(1, 2, 3))
-test.printElements()
-
-
