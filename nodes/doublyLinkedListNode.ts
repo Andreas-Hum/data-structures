@@ -9,7 +9,7 @@ export default class Node<T> {
      * The value stored in the node.
      * @private
      */
-    private _value: T;
+    private _value: T | null;
 
     /**
      * The next node in the linked list.
@@ -28,7 +28,12 @@ export default class Node<T> {
      * @param data - The data to store in the node.
      */
     constructor(data: T) {
-        this._value = data;
+        if (data === undefined) {
+            this._value = null;
+        } else {
+            this._value = data;
+        }
+
         this._next = null;
         this._prev = null;
     }
