@@ -33,7 +33,7 @@ export default class SinglyLinkedList<T> {
         Returns the first node of the list.
         @returns {Node<T>|null} The first node of the list or null if the list is empty.
     */
-    public peek(): Node<T> | null {
+    public peak(): Node<T> | null {
         return this._head;
     }
 
@@ -115,14 +115,59 @@ export default class SinglyLinkedList<T> {
     }
 
 
+    public shift(): T | undefined {
+        if (this.length === 0) {
+            return undefined;
+        } else if (this.length === 1) {
+            const to_be_removed: Node<T> = this._head!;
+            this._tail = null;
+            this._head = null;
+            this.length -= 1;
+            return to_be_removed.getValue()!;
+        }
+
+        const to_be_removed: Node<T> = this._head!;
+        const new_head: Node<T> = to_be_removed.getNext()!
+
+        to_be_removed.setNext(null)
+
+        this._head = new_head;
+
+        this.length -= 1;
+
+        return to_be_removed.getValue()!
+
+    }
+
 
     public printElements(): void {
         let current = this._head
+        if (current === null) {
+            console.log("List is empty")
+        }
         while (current) {
             console.log(current.getValue())
             current = current.getNext()
         }
     }
+
+
 }
 
 
+const test = new SinglyLinkedList<number>(1, 2, 3)
+
+test.printElements()
+
+const test2 = test.shift()
+console.log(test2 + " hello " + test.length + " " + test.peak()?.getValue())
+
+test.printElements()
+
+const test3 = test.shift()
+console.log(test3 + " hello " + test.length + " " + test.peak()?.getValue())
+test.printElements()
+
+const test4 = test.shift()
+console.log(test4 + " hello " + test.length + " " + test.peak()?.getValue())
+test.printElements()

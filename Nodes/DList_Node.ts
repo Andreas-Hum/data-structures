@@ -39,7 +39,7 @@ export default class Node<T> {
      * Returns the data stored in the node.
      * @returns The data stored in the node.
      */
-    public getValue(): T {
+    public getValue(): T | null {
         return this._value;
     }
 
@@ -73,7 +73,7 @@ export default class Node<T> {
      * Sets the next node in the linked list.
      * @param nextNode - The next node in the linked list.
      */
-    public setNext(nextNode: Node<T>): void {
+    public setNext(nextNode: Node<T> | null): void {
         this._next = nextNode;
     }
 
@@ -81,7 +81,7 @@ export default class Node<T> {
      * Sets the previous node in the linked list.
      * @param prevNode - The previous node in the linked list.
      */
-    public setPrev(prevNode: Node<T>): void {
+    public setPrev(prevNode: Node<T> | null): void {
         this._prev = prevNode;
     }
 }

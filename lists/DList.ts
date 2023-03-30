@@ -70,7 +70,7 @@ export default class DoublyLinkedList<T> {
                 this._head = this._tail
             }
 
-          
+
 
             current_tail = new_node;
             this.length += 1;
@@ -115,6 +115,9 @@ export default class DoublyLinkedList<T> {
 
     public printElements(): void {
         let current = this._head
+        if (current === null) {
+            console.log("List is empty")
+        }
         while (current) {
             console.log(current.getValue())
             current = current.getNext()
