@@ -185,6 +185,40 @@ export default class SinglyLinkedList<T> {
     }
 
 
+    /**
+     * Returns the index of the first element in the list that satisfies the search criteria
+     *
+     * @param searchCriteria The function used to determine if an element satisfies the search criteria
+     * @param fromIndex The index at which to begin the search (optional)
+     * @return The index of the first element that satisfies the search criteria, or -1 if no element satisfies the criteria
+    */
+    public indexOf(searchCriteria: (element: T) => boolean, fromIndex?: number): number {
+        const startIndex = fromIndex ?? 0;
+        if (startIndex > this.length) {
+            return -1;
+        } else if (this.length === 0) {
+            return -1;
+        }
+
+        let current_node: Node<T> = this._head!;
+
+        if (startIndex > 1) {
+            for (let i = 0; i < startIndex; i++) {
+                current_node = current_node.getNext()!;
+            }
+        }
+
+        for (let i = startIndex; i < this.length; i++) {
+            if (searchCriteria(current_node.getValue())) {
+                return i;
+            }
+            current_node = current_node.getNext()!
+        }
+
+        return -1;
+    }
+
+
     //PRINTS THE ELEMENTS
     public printElements(): void {
         let current = this._head
@@ -200,4 +234,7 @@ export default class SinglyLinkedList<T> {
 
 }
 
+
+
+// const test: any[] = []
 
