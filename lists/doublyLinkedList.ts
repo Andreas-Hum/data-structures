@@ -144,10 +144,10 @@ export default class DoublyLinkedList<T> {
 
     }
 
-   /**
-        * Removes the last element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
-        * @returns
-    */
+    /**
+         * Removes the last element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+         * @returns
+     */
     public pop(): T | undefined {
         if (this.length === 0) {
             return undefined;
