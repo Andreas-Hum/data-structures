@@ -198,7 +198,16 @@ export default class SinglyLinkedList<T> {
             return -1;
         } else if (this.length === 0) {
             return -1;
+        } else if(startIndex === 0){
+            if(searchCriteria(this._head?.getValue()!)){
+                return 0;
+            }
+
+            if(searchCriteria(this._tail?.getValue()!)){
+                return this.length-1;
+            }
         }
+
 
         let current_node: Node<T> = this._head!;
 
