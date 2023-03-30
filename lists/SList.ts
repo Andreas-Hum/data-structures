@@ -201,23 +201,3 @@ export default class SinglyLinkedList<T> {
 }
 
 
-const test = new SinglyLinkedList<number>(1, 2, 3)
-
-// const tests = []
-
-// tests.pop
-
-test.printElements()
-
-const test2 = test.pop()
-console.log(test2 + " hello " + test.length + " " + test.peakTail()?.getValue())
-
-test.printElements()
-
-const test3 = test.pop()
-console.log(test3 + " hello " + test.length + " " + test.peakTail()?.getValue())
-test.printElements()
-
-const test4 = test.pop()
-console.log(test4 + " hello " + test.length + " " + test.peakTail()?.getValue())
-test.printElements()

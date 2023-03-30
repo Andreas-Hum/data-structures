@@ -113,6 +113,66 @@ export default class DoublyLinkedList<T> {
         return this.length;
     }
 
+    //TAKING ELEMENTS FROM THE LISTS
+
+    /**
+     * Removes the first element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+     * @returns
+     */
+    public shift(): T | undefined {
+        if (this.length === 0) {
+            return undefined;
+        } else if (this.length === 1) {
+            const to_be_removed: Node<T> = this._head!;
+            this._tail = null;
+            this._head = null;
+            this.length -= 1;
+            return to_be_removed.getValue()!;
+        }
+
+        const to_be_removed: Node<T> = this._head!;
+        const new_head: Node<T> = to_be_removed.getNext()!
+
+        to_be_removed.setNext(null)
+        new_head.setPrev(null)
+
+        this._head = new_head;
+
+        this.length -= 1;
+
+        return to_be_removed.getValue()!
+
+    }
+
+    /**
+        * Removes the first element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+        * @returns
+    */
+    public pop(): T | undefined {
+        if (this.length === 0) {
+            return undefined;
+        } else if (this.length === 1) {
+            const to_be_removed: Node<T> = this._head!;
+            this._tail = null;
+            this._head = null;
+            this.length -= 1;
+            return to_be_removed.getValue()!;
+        }
+
+        const to_be_removed: Node<T> = this._tail!;
+        const new_tail: Node<T> = to_be_removed.getPrev()!
+
+        to_be_removed.setPrev(null)
+        new_tail.setNext(null)
+
+        this._tail = new_tail;
+
+        this.length -= 1;
+
+        return to_be_removed.getValue()!
+    }
+
+
     public printElements(): void {
         let current = this._head
         if (current === null) {
