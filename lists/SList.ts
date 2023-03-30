@@ -115,6 +115,12 @@ export default class SinglyLinkedList<T> {
     }
 
 
+    //TAKING ELEMENTS FROM THE LISTS
+
+    /**
+     * Removes the first element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+     * @returns
+     */
     public shift(): T | undefined {
         if (this.length === 0) {
             return undefined;
@@ -139,7 +145,47 @@ export default class SinglyLinkedList<T> {
 
     }
 
+    /**
+        * Removes the first element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+        * @returns
+    */
+    public pop(): T | undefined {
+        if (this.length === 0) {
+            return undefined;
+        } else if (this.length === 1) {
+            const to_be_removed: Node<T> = this._head!;
+            this._tail = null;
+            this._head = null;
+            this.length -= 1;
+            return to_be_removed.getValue()!;
+        } else if (this.length === 2) {
+            const to_be_removed: Node<T> = this._tail!;
 
+            this._head!.setNext(null)
+            this._tail = this._head;
+            this.length -= 1;
+            return to_be_removed.getValue()!;
+        }
+
+        const to_be_removed: Node<T> = this._tail!;
+        let tailing: Node<T> = this._head!
+        for (let i = 0; i < this.length - 2; i++) {
+            tailing = tailing.getNext()!
+        }
+
+
+
+        tailing.setNext(null)
+
+        this._tail = tailing;
+
+        this.length -= 1;
+
+        return to_be_removed.getValue()!
+    }
+
+
+    //PRINTS THE ELEMENTS
     public printElements(): void {
         let current = this._head
         if (current === null) {
@@ -157,17 +203,21 @@ export default class SinglyLinkedList<T> {
 
 const test = new SinglyLinkedList<number>(1, 2, 3)
 
+// const tests = []
+
+// tests.pop
+
 test.printElements()
 
-const test2 = test.shift()
-console.log(test2 + " hello " + test.length + " " + test.peak()?.getValue())
+const test2 = test.pop()
+console.log(test2 + " hello " + test.length + " " + test.peakTail()?.getValue())
 
 test.printElements()
 
-const test3 = test.shift()
-console.log(test3 + " hello " + test.length + " " + test.peak()?.getValue())
+const test3 = test.pop()
+console.log(test3 + " hello " + test.length + " " + test.peakTail()?.getValue())
 test.printElements()
 
-const test4 = test.shift()
-console.log(test4 + " hello " + test.length + " " + test.peak()?.getValue())
+const test4 = test.pop()
+console.log(test4 + " hello " + test.length + " " + test.peakTail()?.getValue())
 test.printElements()
