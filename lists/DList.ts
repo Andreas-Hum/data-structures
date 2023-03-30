@@ -144,8 +144,8 @@ export default class DoublyLinkedList<T> {
 
     }
 
-    /**
-        * Removes the first element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+   /**
+        * Removes the last element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
         * @returns
     */
     public pop(): T | undefined {
@@ -173,6 +173,67 @@ export default class DoublyLinkedList<T> {
     }
 
 
+    //INDEX OPERATIONS
+    /**
+    * Returns the index of the first element in the list that satisfies the search criteria
+    *
+    * @param searchCriteria The function used to determine if an element satisfies the search criteria
+    * @param fromIndex The index at which to begin the search (optional)
+    * @return The index of the first element that satisfies the search criteria, or -1 if no element satisfies the criteria
+   */
+    public indexOf(searchCriteria: (element: T) => boolean, fromIndex?: number): number {
+        const startIndex = fromIndex ?? 0;
+
+        if (startIndex > this.length) {
+            return -1;
+        } else if (this.length === 0) {
+            return -1;
+        } else if (startIndex === 0) {
+            if (searchCriteria(this._head?.getValue()!)) {
+                return 0;
+            }
+
+            if (searchCriteria(this._tail?.getValue()!)) {
+                return this.length - 1;
+            }
+        }
+
+        let current_node: Node<T>;
+
+        if (Math.floor(startIndex / this.length) > 0.5) {
+            current_node = this._tail!;
+
+            if (startIndex > 1) {
+                for (let i = this.length - 1; i > startIndex; i--) {
+                    if (searchCriteria(current_node!.getValue()!)) {
+                        return i;
+                    }
+                    current_node = current_node.getPrev()!;
+                }
+            }
+        } else {
+            let current_node = this._head!;
+
+
+            if (startIndex > 1) {
+                for (let i = 0; i < startIndex; i++) {
+                    current_node = current_node.getNext()!;
+                }
+            }
+
+            for (let i = startIndex; i < this.length; i++) {
+                if (searchCriteria(current_node!.getValue()!)) {
+                    return i;
+                }
+                current_node = current_node!.getNext()!
+            }
+        }
+
+
+        return -1;
+    }
+
+
     public printElements(): void {
         let current = this._head
         if (current === null) {
@@ -186,3 +247,11 @@ export default class DoublyLinkedList<T> {
 }
 
 
+
+const test = new DoublyLinkedList<number>(1, 2, 3, 4, 5, 6)
+
+console.log(test.indexOf((element => element == 6)))
+
+test.pop()
+
+console.log(test.indexOf((element => element == 6)))

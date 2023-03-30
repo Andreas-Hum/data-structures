@@ -33,7 +33,7 @@ export default class Node<T> {
      * Returns the data stored in the node.
      * @returns The data stored in the node.
      */
-    public getValue(): T  {
+    public getValue(): T | null {
         return this._value;
     }
 

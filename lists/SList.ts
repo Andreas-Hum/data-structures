@@ -146,7 +146,7 @@ export default class SinglyLinkedList<T> {
     }
 
     /**
-        * Removes the first element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
+        * Removes the last element from the list and returns it. If the list is empty, undefined is returned and the list is not modified.
         * @returns
     */
     public pop(): T | undefined {
@@ -194,6 +194,7 @@ export default class SinglyLinkedList<T> {
     */
     public indexOf(searchCriteria: (element: T) => boolean, fromIndex?: number): number {
         const startIndex = fromIndex ?? 0;
+
         if (startIndex > this.length) {
             return -1;
         } else if (this.length === 0) {
@@ -218,7 +219,7 @@ export default class SinglyLinkedList<T> {
         }
 
         for (let i = startIndex; i < this.length; i++) {
-            if (searchCriteria(current_node.getValue())) {
+            if (searchCriteria(current_node.getValue()!)) {
                 return i;
             }
             current_node = current_node.getNext()!
