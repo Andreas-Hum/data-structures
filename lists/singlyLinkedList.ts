@@ -246,5 +246,4 @@ export default class SinglyLinkedList<T> {
 
 
 
-// const test: any[] = []
 
