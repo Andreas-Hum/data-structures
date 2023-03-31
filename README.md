@@ -33,6 +33,8 @@ To use these data structures in your TypeScript projects, you can import them as
 import { SinglyLinkedListNode, DoublyLinkedListNode } from 'data-structures/nodes';
 import { SinglyLinkedList, DoublyLinkedList } from 'data-structures/lists';
 import { DirectAddressTable } from 'data-structures/hashTables';
+
+etc...
 ```
 
 You can then create instances of these data structures and use their methods as appropriate for your use case.
@@ -48,6 +50,11 @@ This library was created by Andreas Hummelmose, a computer science student at Aa
 
 - [Nodes](#nodes)
     - [Singly linked list node](#singly-linked-list-node)
+      - [constructor](#node-constructor)
+        - Node`<T>`() constructor
+      - [Properties](#properties)
+        - Node`<T>`: length
+      - [Methods](#methods)
         - [setValue](#setValue)
         - [setNext](#setNext)
         - [getNext](#getNext)
@@ -55,27 +62,47 @@ This library was created by Andreas Hummelmose, a computer science student at Aa
 - [Documentation](#documentation)
 
 
-## Nodes
+## **Nodes**
 
-### Singly linked list node:
+### **Singly linked list node:**
 
 This module exports a `Node<T>` class which represents a node in a singly linked list.
 
-### Usage
-<br>
+### **Usage**
 
 To use this singly linked list node in your TypeScript project, first import and `Node<T>` class:
 
-### Example
+#### **Example**
 
 ```Typescript
 import { Node } from 'data-structures/lists';
 
-const node: Node<number> = new Node<number>(1)
+```
+### **node constructor**
+The `node<T>()` constructor creates an instance of the `node<T>()` class.
 
+#### **Syntax**
+```Typescript
+import { Node } from 'data-structures/lists';
+
+const node_init: Node<number> = new Node<number>(1)
+const node: Node<number> = new Node<number>()
 ```
 
+#### **Parameter:**
+- `data:T` (optional): The data of type T to be stored in the node
+  - Remark if no data is given data will be null
 
+<br>
+
+### **Properties:**
+ - `Node<T>:length` The length data property of an `Node<T>` instance represents the number of elements in that list.
+
+### **Methods**
+
+#### **setValue:**
+Sets the value of the node
+###
 
 
 
