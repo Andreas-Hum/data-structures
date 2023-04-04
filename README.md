@@ -1,14 +1,22 @@
 # TypeScript Data Structures
 
-This is a TypeScript library containing implementations of various data structures. It allows for defining user-defined types, making it more flexible and customizable to fit various use cases. Additionally, this library enforces type safety by allowing the definition of lists where elements are forced to be of a defined type instead of any type.
+This is a TypeScript library containing implementations of various data structures. It allows for defining user-defined types, making it more flexible and customizable to fit various use cases. Additionally, this library enforces type safety by allowing the definition of types on every single datatype
 
 ## Table of Contents
 
-- [Available Data Structures](#available-data-structures)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [Author](#author)
+- [TypeScript Data Structures](#typescript-data-structures)
+  - [Table of Contents](#table-of-contents)
+  - [Available Data Structures](#available-data-structures)
+  - [Getting Started](#getting-started)
+  - [Contributing](#contributing)
+  - [Author](#author)
 - [Documentation](#documentation)
+    - [**Usage**](#usage)
+      - [**Example**](#example)
+      - [**Parameter:**](#parameter)
+    - [**Properties:**](#properties)
+    - [**Methods**](#methods)
+    - [](#)
 
 ## Available Data Structures
 
@@ -47,62 +55,74 @@ This library was created by Andreas Hummelmose, a computer science student at Aa
 
 
 # Documentation
+<details><summaryNodes</summary>
 
-- [Nodes](#nodes)
-    - [Singly linked list node](#singly-linked-list-node)
-      - [constructor](#node-constructor)
-        - Node`<T>`() constructor
-      - [Properties](#properties)
-        - Node`<T>`: length
-      - [Methods](#methods)
-        - [setValue](#setValue)
-        - [setNext](#setNext)
-        - [getNext](#getNext)
-        - [getValue](#getNext)
-- [Documentation](#documentation)
+  - <details><summary>Singly linked list node</summary>
+  
+    - [constructor]
+      - Node`<T>`() constructor
+    - [Properties]
+      - Node`<T>`: length
+    - [Methods]
+      - Node`<T>`.setValue()
+      - Node`<T>`.setNext()
+      - Node`<T>`.getNext
+      - Node`<T>`.getValue
 
+</details>
 
-## **Nodes**
+</details>
 
-### **Singly linked list node:**
-
-This module exports a `Node<T>` class which represents a node in a singly linked list.
-
-### **Usage**
-
-To use this singly linked list node in your TypeScript project, first import and `Node<T>` class:
-
-#### **Example**
-
-```Typescript
-import { Node } from 'data-structures/lists';
-
-```
-### **node constructor**
-The `node<T>()` constructor creates an instance of the `node<T>()` class.
-
-#### **Syntax**
-```Typescript
-import { Node } from 'data-structures/lists';
-
-const node_init: Node<number> = new Node<number>(1)
-const node: Node<number> = new Node<number>()
-```
-
-#### **Parameter:**
-- `data:T` (optional): The data of type T to be stored in the node
-  - Remark if no data is given data will be null
-
+---
 <br>
 
-### **Properties:**
- - `Node<T>:length` The length data property of an `Node<T>` instance represents the number of elements in that list.
+<details><summary>Nodes</summary>
 
-### **Methods**
+- <details><summary>Singly linked list node:</summary>
 
-#### **setValue:**
-Sets the value of the node
-###
+  This module exports a `Node<T>` class which represents a node in a singly linked list.
+
+  ### **Usage**
+
+  To use this singly linked list node in your TypeScript project, first import the `Node<T>` class:
+
+  #### **Example**
+
+  ```Typescript
+  import { Node } from 'data-structures/lists/SinglyLinkedList';
+  ```
+    ### **node constructor**
+    The `node<T>()` constructor creates an instance of the `node<T>()` class.
+
+    #### **Syntax**
+    ```Typescript
+    import { Node } from 'data-structures/lists/SinglyLinkedList';
+
+    const node_init: Node<number> = new Node<number>(1)
+    const node: Node<number> = new Node<number>()
+    ```
+  #### **Parameter:**
+  - `data:T` (optional): The data of type T to be stored in the node
+    - Remark if no data is given data will be null
+
+  <br>
+
+  ### **Properties:**
+   - `Node<T>:length` The length data property of an `Node<T>` instance represents the number of elements in that list.
+
+  ### **Methods**
+
+  - #### **`Node<T>`.setValue():**
+    The `setValue()` Sets the value of the node
+  ###
+
+</details>
+</details>
+
+
+
+
+
 
 
 

@@ -56,7 +56,7 @@ export default class Node<T> {
      * Sets the data stored in the node.
      * @param data - The data to store in the node.
      */
-    public setValue(data: T): void {
+    public setValue(data: T | null): void {
         this._value = data;
     }
 
