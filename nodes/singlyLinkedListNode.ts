@@ -69,3 +69,9 @@ export default class Node<T> {
     }
 
 }
+
+
+const test = new Node(232)
+
+
+test 
