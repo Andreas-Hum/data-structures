@@ -40,7 +40,7 @@ export default class DoublyLinkedList<T> {
         Returns the last node of the list.
         @returns {Node<T>|null} The last node of the list or null if the list is empty.
     */
-    public peakTail(): Node<T> | null {
+    public peekTail(): Node<T> | null {
         return this._tail;
     }
 
@@ -212,7 +212,7 @@ export default class DoublyLinkedList<T> {
                 }
             }
         } else {
-            let current_node = this._head!;
+            let current_node:Node<T> = this._head!;
 
 
             if (startIndex > 1) {
@@ -231,6 +231,57 @@ export default class DoublyLinkedList<T> {
 
 
         return -1;
+    }
+
+    /**
+        Returns the node at the specified index in the singly linked list.
+        @param index The index of the node to retrieve.
+        @return The node at the specified index, or undefined if the index is out of bounds or the linked list is empty.
+    */ 
+    public getIndex(index: number): Node<T> | undefined | null {
+        if (index > this.length || index < 0 || this.length === 0) {
+            return undefined;
+        }
+
+        if (index === this.length || index === this.length - 1) {
+            return this._tail
+        } else if (index === 0) {
+            return this._head
+        }
+
+        let current_node: Node<T> = this._head!
+
+        for (let i = 1; i < index; i++) {
+            current_node = current_node.getNext()!
+        }
+
+        return current_node
+    }
+
+
+    /**
+        Updates the value of the node at the specified index in the singly linked list.
+        @param index The index of the node to update.
+        @param newValue The new value to set for the node.
+    */
+    public setIndex(index: number, newValue: T | null): void {
+        if (index > this.length || index < 0 || this.length === 0) {
+            return;
+        }
+
+        if (index === this.length || index === this.length - 1) {
+            this._tail?.setValue(newValue)
+        } else if (index === 0) {
+            this._head?.setValue(newValue)
+        }
+
+        let current_node: Node<T> = this._head!
+
+        for (let i = 1; i < index; i++) {
+            current_node = current_node.getNext()!
+        }
+
+        current_node.setValue(newValue)
     }
 
 
